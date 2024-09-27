@@ -1,16 +1,28 @@
-# object_detection
+# Flutter Object Detection with TFLite
 
-A new Flutter project.
+This Flutter application demonstrates object detection using TensorFlow Lite (TFLite) models, specifically YOLO and SSD MobileNet. The app allows users to select an image from their gallery and perform real-time object detection, displaying bounding boxes and labels for detected objects.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Object detection using YOLOv5 and SSD MobileNet models
+- Image selection from the gallery
+- Real-time display of detection results with bounding boxes and labels
 
-A few resources to get you started if this is your first Flutter project:
+## Installation
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/anusha928/object_detection_flutter.git
+   ```
+2. Run flutter pub get to install the dependencies.
+3. Place the required TFLite model files in the specified assets directory.
+4. Run the app on an emulator or physical device.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Usage
+
+- Click the floating action button to select an image.
+- The app will process the image and display detected objects with their confidence levels.\
+
+## License
+- This project is licensed under the MIT License.
