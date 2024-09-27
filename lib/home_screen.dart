@@ -58,7 +58,6 @@ class _TfliteHomeState extends State<TfliteHome> {
       _busy = true;
     });
     final fileImage = File(image.path);
-    print("Image selected: ${fileImage.path}");
     predictImage(fileImage);
   }
 
@@ -75,7 +74,6 @@ class _TfliteHomeState extends State<TfliteHome> {
       setState(() {
         _imageWidth = info.image.width.toDouble();
         _imageHeight = info.image.height.toDouble();
-        print("Image Width $_imageWidth");
       });
     }));
 
@@ -125,20 +123,10 @@ class _TfliteHomeState extends State<TfliteHome> {
   List<Widget> renderBoxes(Size screen) {
     if (_recognitions == null || _imageWidth == null || _imageHeight == null)
       return [];
-    print(_recognitions);
     double factorX = screen.width;
     double factorY = _imageHeight! / _imageHeight! * screen.width;
     Color blue = Colors.blue;
-
-    print(("\nxfactor $factorX\n"));
-    print(
-        ("+++++++++++++++++&&&&&&&&7VBsdfghjkdfg5555555555555555555555555555555555555555"));
-    print(("\nyfactor $factory\n"));
-
     return _recognitions!.map((re) {
-      print(
-        "------------------------------------hbu------${re["detectedClass"]} ${(re["confidenceInClass"] * 100).toStringAsFixed(0)}%",
-      );
       return Positioned(
         left: re["rect"]["x"] * factorX,
         top: re["rect"]["y"] * factorY,
@@ -190,9 +178,9 @@ class _TfliteHomeState extends State<TfliteHome> {
         title: const Text("TFLite Demo"),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.image),
         tooltip: "Pick Image from gallery",
         onPressed: selectFromImagePicker,
+        child: const Icon(Icons.image),
       ),
       body: Stack(
         children: stackChildren,
