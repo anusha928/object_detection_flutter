@@ -11,7 +11,7 @@ class TfliteHome extends StatefulWidget {
 }
 
 class _TfliteHomeState extends State<TfliteHome> {
-  final String _model = yolo; // Use constants if defined
+  final String _model = yolo;
   File? _image;
   double? _imageWidth;
   double? _imageHeight;
@@ -34,10 +34,15 @@ class _TfliteHomeState extends State<TfliteHome> {
     Tflite.close();
     try {
       String? res;
-      if (_model == "YOLO") {
+      if (_model == "YOLOv2") {
         res = await Tflite.loadModel(
           model: "assets/tflite/yolov2_tiny.tflite",
           labels: "assets/tflite/yolov2_tiny.txt",
+        );
+      } else if (_model == "YOLOv5") {
+        res = await Tflite.loadModel(
+          model: "assets/tflite/yolov5s.tflite",
+          labels: "assets/tflite/yolov5s.txt",
         );
       } else {
         res = await Tflite.loadModel(
@@ -62,7 +67,7 @@ class _TfliteHomeState extends State<TfliteHome> {
   }
 
   Future<void> predictImage(File image) async {
-    if (_model == "YOLO") {
+    if (_model == "YOLOv2" || _model == "YOLOv5") {
       await yolov2Tiny(image);
     } else {
       await ssdMobileNet(image);
@@ -93,6 +98,7 @@ class _TfliteHomeState extends State<TfliteHome> {
         imageStd: 255.0,
         numResultsPerClass: 1,
       );
+      print(recognitions);
       setState(() {
         _recognitions = recognitions;
       });

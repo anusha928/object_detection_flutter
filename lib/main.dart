@@ -6,7 +6,8 @@ void main() {
 }
 
 const String ssd = 'SSD MobileNet';
-const String yolo = 'Tiny YOLOv2';
+const String yolo = 'YOLOv2';
+const String yolov5 = 'YOLOv5';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

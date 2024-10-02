@@ -45,6 +45,8 @@ flutter:
     - assets/tflite/ssd_mobilenet.txt
     - assets/tflite/yolov2_tiny.tflite
     - assets/tflite/yolov2_tiny.txt
+    - assets/tflite/yolov5s.tflite
+    - assets/tflite/yolov5s.txt
     
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
